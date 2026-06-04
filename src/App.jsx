@@ -4,6 +4,8 @@ import {
   Route,
 } from "react-router-dom"
 import { useState } from "react"
+import { lazy } from "react"
+import { Suspense } from "react"
 
 import Home from "./pages/Home/Home"
 import About from "./pages/About/About"
@@ -18,6 +20,9 @@ import Counter from "./components/Counter/Counter"
 import useWindowTitle from "./hooks/UseWindowsTitle"
 import UserData from "./components/UserData/UserData"
 import Todo from "./components/Todo/Todo"
+import Dashboard from "./components/Dashboard/Dashboard.jsx"
+
+const Reports = lazy(()=>import("./pages/Reports/Reports"))
 
 export default function App(){
 
@@ -76,6 +81,12 @@ export default function App(){
           <UserData/>
 
           <Todo/>
+
+          <Dashboard />
+
+          <Suspense fallback={<h2>Loading Reports...</h2>}>
+            <Reports />
+          </Suspense>
 
         </BrowserRouter>
       </ThemeContext.Provider>
