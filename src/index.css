@@ -1,0 +1,23 @@
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light {
+  background-color: #ffffff;
+  color: #111111;
+}
+
+body.dark {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+body.light button {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+body.dark button {
+  background-color: #f0f0f0;
+  color: #111111;
+}

@@ -1,0 +1,16 @@
+.home {
+  position: relative;
+  padding: 20px;
+}
+
+.home button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.3s, color 0.3s;
+}
