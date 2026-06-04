@@ -25,7 +25,7 @@ export default function App(){
     name:"Kiran"
   })
 
-  const[darkMode,setDarkMode]=useState(false)
+  const[darkMode,setDarkMode]=useState(true)
 
   useWindowTitle("My React App")
 

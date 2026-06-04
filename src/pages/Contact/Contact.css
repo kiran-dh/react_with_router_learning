@@ -1,8 +1,8 @@
-.home {
+.contact {
   padding: 20px;
 }
 
-.home .theme-toggle {
+.contact .theme-toggle {
   position: fixed;
   top: 16px;
   right: 16px;
@@ -12,11 +12,11 @@
   gap: 6px;
 }
 
-.home .theme-toggle span {
+.contact .theme-toggle span {
   font-size: 0.8rem;
 }
 
-.home .theme-toggle button {
+.contact .theme-toggle button {
   padding: 6px 14px;
   border: none;
   border-radius: 6px;
