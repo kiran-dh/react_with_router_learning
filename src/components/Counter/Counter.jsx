@@ -1,10 +1,10 @@
 // import UseCounter from "../../hooks/useCounter";
 import { useReducer } from "react";
-import reducer from "../../Reducers/CounterReducer"
+import CounterReducer from "../../Reducers/CounterReducer"
 
 function Counter(){
 
-    const[count,dispatch]=useReducer(reducer,0)
+    const[count,dispatch]=useReducer(CounterReducer,0)
 
     return(
         <div>

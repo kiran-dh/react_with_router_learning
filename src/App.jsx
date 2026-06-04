@@ -17,7 +17,7 @@ import ThemeContext from "./context/ThemeContext"
 import Counter from "./components/Counter/Counter"
 import useWindowTitle from "./hooks/UseWindowsTitle"
 import UserData from "./components/UserData/UserData"
-
+import Todo from "./components/Todo/Todo"
 
 export default function App(){
 
@@ -74,6 +74,8 @@ export default function App(){
           <br />
 
           <UserData/>
+
+          <Todo/>
 
         </BrowserRouter>
       </ThemeContext.Provider>
