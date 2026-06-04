@@ -1,6 +1,6 @@
 // import UseCounter from "../../hooks/useCounter";
 import { useReducer } from "react";
-import reducer from "../../hooks/useCounter";
+import reducer from "../../Reducers/CounterReducer"
 
 function Counter(){
 
