@@ -1,28 +1,50 @@
-import UseCounter from "../../hooks/useCounter";
+// import UseCounter from "../../hooks/useCounter";
+import { useReducer } from "react";
+import reducer from "../../hooks/useCounter";
 
 function Counter(){
-    const{
-        increase,
-        decrease,
-        reset,
-        count
-    } = UseCounter();
+
+    const[count,dispatch]=useReducer(reducer,0)
 
     return(
         <div>
             <h1>{count}</h1>
-            <button onClick={()=>increase()} >
-                Plus
+            <button onClick={()=>dispatch({ type:"ReducerPlus" })}>
+                ReducerPlus
             </button>
-            <button onClick={()=>decrease()} >
-                Minus
+            <button onClick={()=>dispatch({ type:"ReducerMinus" })}>
+                ReducerMinus
             </button>
-            <button onClick={()=>reset()} >
-                Reset
+            <button onClick={()=>dispatch({ type:"ReducerReset" })}>
+                ReducerReset
             </button>
             
         </div>
     )
+
+    // function Counter(){
+    //     const{
+    //         increase,
+    //         decrease,
+    //         reset,
+    //         count
+    //     } = UseCounter();
+
+    // return(
+    //     <div>
+    //         <h1>{count}</h1>
+    //         <button onClick={()=>increase()} >
+    //             Plus
+    //         </button>
+    //         <button onClick={()=>decrease()} >
+    //             Minus
+    //         </button>
+    //         <button onClick={()=>reset()} >
+    //             Reset
+    //         </button>
+            
+    //     </div>
+    // )
 
 }
 
