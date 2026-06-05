@@ -5,7 +5,7 @@ import "./Contact.css";
 function Contact(){
 
     const initialState={
-        darkMode:false,
+        darkMode:true,
     }
 
     const[state,dispatch]=useReducer(ThemeReducer,initialState)

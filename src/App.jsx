@@ -1,11 +1,10 @@
 import {
-  BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom"
-import { useState } from "react"
-import { lazy } from "react"
-import { Suspense } from "react"
+import { useState, useContext } from "react"
+import { lazy, Suspense } from "react"
+import { AuthContext } from "./context/AuthContext"
 
 import Home from "./pages/Home/Home"
 import About from "./pages/About/About"
@@ -21,6 +20,8 @@ import useWindowTitle from "./hooks/UseWindowsTitle"
 import UserData from "./components/UserData/UserData"
 import Todo from "./components/Todo/Todo"
 import Dashboard from "./components/Dashboard/Dashboard.jsx"
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx"
+import Login from "./pages/Login/Login.jsx"
 
 const Reports = lazy(()=>import("./pages/Reports/Reports"))
 
@@ -31,21 +32,30 @@ export default function App(){
   })
 
   const[darkMode,setDarkMode]=useState(true)
+  const { isLoggedIn } = useContext(AuthContext)
 
   useWindowTitle("My React App")
 
   return (
     <UserContext.Provider value={user} >
       <ThemeContext.Provider value={{darkMode,setDarkMode}}>
-        <BrowserRouter>
 
-          <NavBar/>
+          {isLoggedIn && <NavBar/>}
 
           <Routes>
 
+            <Route 
+              path="/" 
+              element={<Login />} 
+            />
+
             <Route
-              path="/"
-              element={<Home/>}
+              path="/Home"
+              element={
+                <ProtectedRoute>
+                  <Home/>
+                </ProtectedRoute>
+              }
             />
 
             <Route
@@ -70,25 +80,21 @@ export default function App(){
 
           </Routes>
 
-          <Profile/>
+          {isLoggedIn && (
+            <>
+              <Profile/>
+              <br />
+              <Counter/>
+              <br />
+              <UserData/>
+              <Todo/>
+              <Dashboard />
+              <Suspense fallback={<h2>Loading Reports...</h2>}>
+                <Reports />
+              </Suspense>
+            </>
+          )}
 
-          <br />
-
-          <Counter/>
-
-          <br />
-
-          <UserData/>
-
-          <Todo/>
-
-          <Dashboard />
-
-          <Suspense fallback={<h2>Loading Reports...</h2>}>
-            <Reports />
-          </Suspense>
-
-        </BrowserRouter>
       </ThemeContext.Provider>
     </UserContext.Provider>
 
